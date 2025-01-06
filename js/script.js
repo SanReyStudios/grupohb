@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const fetchData = () => {
-        fetch('https://sanreystudios.github.io/grupohb/')
-            .then(response => response.text())
+        fetch('https://raw.githubusercontent.com/sanreystudios/grupohb/main/data.json')
+            .then(response => response.json())
             .then(data => {
-                const jsonData = JSON.parse(data);
                 const dataContainer = document.getElementById('data-container');
-                dataContainer.innerHTML = JSON.stringify(jsonData, null, 2);
+                dataContainer.innerHTML = JSON.stringify(data, null, 2);
             })
             .catch(error => console.error('Error fetching data:', error));
     };
